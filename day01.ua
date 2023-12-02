@@ -3,8 +3,8 @@
 # "runs" of identical
 # numbers, omitting <= 0.
 # TBH i do not actually understand this
-&fras "inputs/day01"
-# "oneightwo"
+# &fras "inputs/day01"
+"5lfprlrznvgtsix4xmdxvgsv7six"
 ⊜□≠, @\n
 
 # tmp, to make it easier to print
@@ -21,7 +21,7 @@ ProcessLineA ← (
   + ×10 : ∩(-@0) ⊢⇌:⊢.
 )
 
-ProcessLineB ← (
+ProcessLineB ← |1 (
   # Get needed length
   ⊢ △.
   :
@@ -32,15 +32,14 @@ ProcessLineB ← (
   # starts there
   ≡⊐⌕ ,,
   # Find out how much needs to be rotated by
-  ⊗ 1
-  # Fetch max len aaaaall the way from the bottom
-  ⊃⋅⋅⋅∘ ⊙⊙⊙∘
-  # Mask away where indexof returns length
-  # (sentinel value for "not found")
-  # (i'm sure there's some enlightened reason for
-  # this but i do *not* understand why it does
-  # that)
-  ≠ ⊙.
+  # ⊗ 1
+  ⊚
+  # Must transform this into jagged array somehow
+  # Magic invocation from Kai on uiuacord
+  /⊕□⍉
+  # Pad out to length 9
+  ⬚(□[])↙ ⧻,
+  dump∘
   :
 
   # Get length of each number word
@@ -81,7 +80,7 @@ ProcessLineB ← (
   + ×10 : ⊢⇌:⊢.
 )
 
-&s /+ ∵ProcessLineA .
-&s /+ ∵ProcessLineB
+# &s /+ ∵ProcessLineA .
+/+ ∵ProcessLineB
 
 # 53259 : too low
